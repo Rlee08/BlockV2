@@ -52,5 +52,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "OMG_Minecraft-main.sln"
+    "dotnet.defaultSolution": "BlockV2.sln"
 }
