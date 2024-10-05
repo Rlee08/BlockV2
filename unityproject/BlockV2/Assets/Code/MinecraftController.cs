@@ -78,29 +78,29 @@ public class MinecraftController : MonoBehaviour {
             BlockOutline.transform.position = pos;
 
             // left click
-            if (Input.GetMouseButtonDown(0)) {
-                Instantiate(BlockPrefab, pos, Quaternion.identity);
-            }
+            // if (Input.GetMouseButtonDown(0)) {
+            //     Instantiate(BlockPrefab, pos, Quaternion.identity);
+            // }
 
             // right click
-            else if (Input.GetMouseButtonDown(1)) {
-                if (Hit.collider.name == "BlockGrass(Clone)")
-                    Destroy(Hit.collider.gameObject);
+            // else if (Input.GetMouseButtonDown(1)) {
+            //     if (Hit.collider.name == "Block(Clone)")
+            //         Destroy(Hit.collider.gameObject);
             }
         }
     }
 
-    private void OnDrawGizmos() {
+//     private void OnDrawGizmos() {
 
-        // camera ray
-        Gizmos.color = Color.blue;
-        Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * 99999);
+//         // camera ray
+//         Gizmos.color = Color.blue;
+//         Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * 99999);
 
-        // collision point
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(Hit.point, 0.05f);
+//         // collision point
+//         Gizmos.color = Color.red;
+//         Gizmos.DrawSphere(Hit.point, 0.05f);
 
-        // surface direction
-        Gizmos.DrawRay(Hit.point, Hit.normal);
-    }
-}
+//         // surface direction
+//         Gizmos.DrawRay(Hit.point, Hit.normal);
+//     }
+// }
