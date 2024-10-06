@@ -35,6 +35,7 @@ public class BlockController : MonoBehaviour {
         // cam = Camera.main;
 
         mousePainter = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MousePainter>();
+        mousePainter.enabled = false;
     }
 
     // Update is called once per frame
@@ -115,6 +116,14 @@ public class BlockController : MonoBehaviour {
 
             // }
         }
+    }
+
+    public void OnPaint() {
+        mousePainter.enabled = true;
+    }
+
+    public void OffPaint() {
+        mousePainter.enabled = false;
     }
 
     // public void OnMakeBlock() {

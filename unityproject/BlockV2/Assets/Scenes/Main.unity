@@ -150,9 +150,9 @@ MonoBehaviour:
   BlockPrefab: {fileID: 8883308897184646794, guid: c806d7b56f7ab4e928c21d67bcec18c1, type: 3}
   BlockOutline: {fileID: 1761946745}
   makeButtonToggle: {fileID: 1292276677}
-  makeButton: {fileID: 0}
+  makeButton: {fileID: 1776517049}
   clearButtonToggle: {fileID: 646663697}
-  clearButton: {fileID: 0}
+  clearButton: {fileID: 344240210}
 --- !u!4 &102043698
 Transform:
   m_ObjectHideFlags: 0
@@ -352,6 +352,18 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 102043697}
+        m_TargetAssemblyTypeName: BlockController, Assembly-CSharp
+        m_MethodName: OnPaint
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1441,6 +1453,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 862220084}
   m_CullTransparentMesh: 1
+--- !u!1 &955510013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 955510015}
+  - component: {fileID: 955510014}
+  m_Layer: 0
+  m_Name: MousePainterController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &955510014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955510013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1532b32c9929ea141974a1e47a80bb2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  brush:
+    brushTexture: {fileID: 2800000, guid: b8702b5a8624a114f82a6d09bc3ce746, type: 3}
+    brushNormalTexture: {fileID: 2800000, guid: 945b831b22eb06945bf77e00f16ff51a, type: 3}
+    brushHeightTexture: {fileID: 0}
+    brushScale: 0.01
+    rotateAngle: 0
+    brushNormalBlend: 0.1
+    brushHeightBlend: 0
+    brushColor: {r: 0.47813195, g: 0.41757914, b: 0.9924528, a: 0}
+    colorBlendType: 0
+    normalBlendType: 0
+    heightBlendType: 0
+  useMethodType: 0
+  erase: 0
+--- !u!4 &955510015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955510013}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.5764, y: -5.467496, z: -2.731781}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &964943541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,7 +1553,7 @@ MonoBehaviour:
     rotateAngle: 0
     brushNormalBlend: 0.1
     brushHeightBlend: 0
-    brushColor: {r: 0.46660727, g: 0.47102132, b: 0.96981126, a: 1}
+    brushColor: {r: 0.46217218, g: 0.41320753, b: 1, a: 1}
     colorBlendType: 0
     normalBlendType: 0
     heightBlendType: 0
@@ -1776,6 +1846,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 102043697}
+        m_TargetAssemblyTypeName: BlockController, Assembly-CSharp
+        m_MethodName: OffPaint
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1064487640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1983,10 +2065,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4623151418903840169, guid: c806d7b56f7ab4e928c21d67bcec18c1, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 4300000, guid: c10fb3f8f1a87904081ce0205efe78da, type: 3}
     - target: {fileID: 7750124691112080803, guid: c806d7b56f7ab4e928c21d67bcec18c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3278,6 +3356,7 @@ MonoBehaviour:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
+  - {fileID: 955510015}
   - {fileID: 964943547}
   - {fileID: 705507995}
   - {fileID: 1660513439}
