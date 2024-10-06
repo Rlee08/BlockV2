@@ -9,7 +9,7 @@ public class BlockController : MonoBehaviour {
     public float MoveSpeed = 10;
     public GameObject BlockPrefab;
     public GameObject BlockOutline;
-    Camera cam;
+    // Camera cam;
 
     // private variables
     private float Pitch = 0;
@@ -18,8 +18,8 @@ public class BlockController : MonoBehaviour {
 
     // Start is called before the first frame update
     void Start() {
-        Cursor.lockState = CursorLockMode.Locked;
-        cam = Camera.main;
+        // Cursor.lockState = CursorLockMode.Locked;
+        // cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -53,14 +53,12 @@ public class BlockController : MonoBehaviour {
         // STEP 3
 
         // raycast
-        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
         // looking at a block
         if (Physics.Raycast(ray, out Hit)) {
 
             Vector3 pos = Hit.point;
-
-            // STEP  5
 
             // move away from the surface slightly
             pos += Hit.normal * 0.1f;
@@ -73,8 +71,6 @@ public class BlockController : MonoBehaviour {
 
             // offset position by half a block
             pos += Vector3.one * 1f;
-
-            // STEP 4
 
             // set outline block position for preview
             BlockOutline.transform.position = pos;
