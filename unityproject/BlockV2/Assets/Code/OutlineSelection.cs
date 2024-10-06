@@ -26,6 +26,9 @@ public class OutlineSelection : MonoBehaviour
     private Transform highlight;
     private Transform selection;
     private RaycastHit raycastHit;
+    // [SerializeField] GameObject popup1;
+    [SerializeField] GameObject shareBlock;
+    [SerializeField] GameObject buttonMainGroup;
 
     void Update()
     {
@@ -71,6 +74,10 @@ public class OutlineSelection : MonoBehaviour
                 selection = raycastHit.transform;
                 selection.gameObject.GetComponent<Outline>().enabled = true;
                 highlight = null;
+
+                // Debug.Log("popups goes here");
+                buttonMainGroup.SetActive(false);
+                shareBlock.SetActive(true);
             }
             else
             {

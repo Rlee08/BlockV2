@@ -12,6 +12,10 @@ public class ButtonController : MonoBehaviour
     [SerializeField] GameObject makeButtonToggle;
     [SerializeField] GameObject paintButtonToggle;
     [SerializeField] GameObject clearButtonToggle;
+    [SerializeField] GameObject shareBlock;
+    [SerializeField] GameObject mainButtonGroup;
+    [SerializeField] GameObject popup1;
+    [SerializeField] GameObject popup2;
 
 
     private RaycastHit raycastHit;
@@ -26,6 +30,7 @@ public class ButtonController : MonoBehaviour
         blockController.enabled = false;
         blockOutline.SetActive(false);
         outlineSelector.SetActive(true);
+        shareBlock.SetActive(false);
     }
 
     // Update is called once per frame
@@ -41,7 +46,16 @@ public class ButtonController : MonoBehaviour
                 makeButtonToggle.GetComponent<Button>().onClick.Invoke();
                 paintButtonToggle.GetComponent<Button>().onClick.Invoke();
                 clearButtonToggle.GetComponent<Button>().onClick.Invoke(); 
+
+                shareBlock.SetActive(false);
+                mainButtonGroup.SetActive(true);
+                popup1.SetActive(false);
+                popup2.SetActive(false);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space)){
+            popup2.SetActive(true);
         }
     }
 
