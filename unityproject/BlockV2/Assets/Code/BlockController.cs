@@ -24,8 +24,10 @@ public class BlockController : MonoBehaviour {
     // public Vector3 pos;
 
     [SerializeField] GameObject makeButtonToggle;
+    [SerializeField] GameObject makeButton;
     // [SerializeField] GameObject paintButtonToggle;
     [SerializeField] GameObject clearButtonToggle;
+    [SerializeField] GameObject clearButton;
 
     // Start is called before the first frame update
     void Start() {
@@ -93,25 +95,25 @@ public class BlockController : MonoBehaviour {
                 if (makeButtonToggle.activeSelf) {
                     Instantiate(BlockPrefab, pos, Quaternion.identity);
                 }
-                // else if (clearButtonToggle.activeSelf){
-                //     Debug.Log ("it should clear now");
-                //     if (Hit.collider.name == "Block(Clone)")
-                //     Destroy(Hit.collider.gameObject);
-                // }
+                else if (clearButtonToggle.activeSelf){
+                    Debug.Log ("it should clear now");
+                    if (Hit.collider.name == "Cube")
+                    Destroy(Hit.collider.gameObject);
+                }
             }
 
             // right click
-            else if (Input.GetMouseButtonDown(1)) {
-                Debug.Log ("right down");
-                if (Hit.collider.name == "Cube"){
-                    Debug.Log("i hit");
-                    Destroy(Hit.collider.gameObject);
-                }
-                else {
-                    Debug.Log("didnt hit");
-                }
+            // else if (Input.GetMouseButtonDown(1)) {
+            //     Debug.Log ("right down");
+            //     if (Hit.collider.name == "Cube"){
+            //         Debug.Log("i hit");
+            //         Destroy(Hit.collider.gameObject);
+            //     }
+            //     else {
+            //         Debug.Log("didnt hit");
+            //     }
 
-            }
+            // }
         }
     }
 
@@ -120,17 +122,17 @@ public class BlockController : MonoBehaviour {
     //     Instantiate(BlockPrefab, pos, Quaternion.identity);
     // }
 
-    private void OnDrawGizmos() {
+    // private void OnDrawGizmos() {
 
-        // camera ray
-        Gizmos.color = Color.blue;
-        Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * 99999);
+    //     // camera ray
+    //     Gizmos.color = Color.blue;
+    //     Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * 99999);
 
-        // collision point
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(Hit.point, 0.05f);
+    //     // collision point
+    //     Gizmos.color = Color.red;
+    //     Gizmos.DrawSphere(Hit.point, 0.05f);
 
-        // surface direction
-        Gizmos.DrawRay(Hit.point, Hit.normal);
-    }
+    //     // surface direction
+    //     Gizmos.DrawRay(Hit.point, Hit.normal);
+    // }
 }
