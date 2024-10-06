@@ -155,8 +155,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 4912851603130107749}
   - {fileID: 3855673199839571728}
@@ -191,6 +191,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3855673200470976924}
     m_Modifications:
+    - target: {fileID: 101230, guid: fe5cc53253fec434db54ddc88c90fc11, type: 3}
+      propertyPath: m_Name
+      value: FloorCube
+      objectReference: {fileID: 0}
     - target: {fileID: 101230, guid: fe5cc53253fec434db54ddc88c90fc11, type: 3}
       propertyPath: m_IsActive
       value: 1
