@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MinecraftController : MonoBehaviour {
+public class BlockController : MonoBehaviour {
 
     // public variables visible in inspector
     public Vector2 CameraSpeed = new Vector2(180, 180);
     public float MoveSpeed = 10;
     public GameObject BlockPrefab;
     public GameObject BlockOutline;
+    Camera cam;
 
     // private variables
     private float Pitch = 0;
@@ -18,6 +19,7 @@ public class MinecraftController : MonoBehaviour {
     // Start is called before the first frame update
     void Start() {
         Cursor.lockState = CursorLockMode.Locked;
+        cam = Camera.main;
     }
 
     // Update is called once per frame
@@ -51,7 +53,7 @@ public class MinecraftController : MonoBehaviour {
         // STEP 3
 
         // raycast
-        Ray ray = new Ray(Camera.main.transform.position, Camera.main.transform.forward);
+        Ray ray = cam.ScreenPointToRay(Input.mousePosition);
 
         // looking at a block
         if (Physics.Raycast(ray, out Hit)) {
@@ -70,7 +72,7 @@ public class MinecraftController : MonoBehaviour {
                 Mathf.Floor(pos.z));
 
             // offset position by half a block
-            pos += Vector3.one * 0.5f;
+            pos += Vector3.one * 1f;
 
             // STEP 4
 
@@ -78,17 +80,18 @@ public class MinecraftController : MonoBehaviour {
             BlockOutline.transform.position = pos;
 
             // left click
-            // if (Input.GetMouseButtonDown(0)) {
-            //     Instantiate(BlockPrefab, pos, Quaternion.identity);
-            // }
+            if (Input.GetMouseButtonDown(0)) {
+                Instantiate(BlockPrefab, pos, Quaternion.identity);
+            }
 
             // right click
-            // else if (Input.GetMouseButtonDown(1)) {
-            //     if (Hit.collider.name == "Block(Clone)")
-            //         Destroy(Hit.collider.gameObject);
+            else if (Input.GetMouseButtonDown(1)) {
+                if (Hit.collider.name == "Block(Clone)")
+                    Destroy(Hit.collider.gameObject);
             }
         }
     }
+}
 
 //     private void OnDrawGizmos() {
 

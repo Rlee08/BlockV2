@@ -279,8 +279,8 @@ namespace Es.InkPainter
 
 		private void OnDestroy()
 		{
-			Debug.Log("InkCanvas has been destroyed.");
-			ReleaseRenderTexture();
+			// Debug.Log("InkCanvas has been destroyed.");
+			// ReleaseRenderTexture();
 		}
 
 		private void OnGUI()
