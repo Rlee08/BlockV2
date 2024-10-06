@@ -6,6 +6,7 @@ TagManager:
   tags:
   - makeToggle
   - makePaint
+  - blockController
   layers:
   - Default
   - TransparentFX

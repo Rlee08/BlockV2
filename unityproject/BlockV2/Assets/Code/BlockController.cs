@@ -10,8 +10,8 @@ public class BlockController : MonoBehaviour {
     // public Vector2 CameraSpeed = new Vector2(180, 180);
     // public float MoveSpeed = 10;
     public GameObject BlockPrefab;
-    public GameObject BlockOutline;
-    MousePainter mousePainter;
+    [SerializeField] GameObject blockOutline;
+    // MousePainter mousePainter;
 
     // Camera cam;
 
@@ -34,8 +34,8 @@ public class BlockController : MonoBehaviour {
         // Cursor.lockState = CursorLockMode.Locked;
         // cam = Camera.main;
 
-        mousePainter = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MousePainter>();
-        mousePainter.enabled = false;
+        // mousePainter = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<MousePainter>();
+        // mousePainter.enabled = false;
     }
 
     // Update is called once per frame
@@ -89,7 +89,7 @@ public class BlockController : MonoBehaviour {
             pos += Vector3.one * 1f;
 
             // set outline block position for preview
-            BlockOutline.transform.position = pos;
+            blockOutline.transform.position = pos;
 
             // left click
             if (Input.GetMouseButtonDown(0)) {
@@ -118,13 +118,13 @@ public class BlockController : MonoBehaviour {
         }
     }
 
-    public void OnPaint() {
-        mousePainter.enabled = true;
-    }
+    // public void OnPaint() {
+    //     mousePainter.enabled = true;
+    // }
 
-    public void OffPaint() {
-        mousePainter.enabled = false;
-    }
+    // public void OffPaint() {
+    //     mousePainter.enabled = false;
+    // }
 
     // public void OnMakeBlock() {
         
