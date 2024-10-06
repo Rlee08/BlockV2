@@ -1,6 +1,7 @@
 using UnityEngine;
 using Es.InkPainter.Sample;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class ButtonController : MonoBehaviour
 {
@@ -8,6 +9,11 @@ public class ButtonController : MonoBehaviour
     BlockController blockController;
     [SerializeField] GameObject blockOutline;
     [SerializeField] GameObject outlineSelector;
+    [SerializeField] GameObject makeButtonToggle;
+    [SerializeField] GameObject paintButtonToggle;
+    [SerializeField] GameObject clearButtonToggle;
+
+
     private RaycastHit raycastHit;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -32,6 +38,9 @@ public class ButtonController : MonoBehaviour
             {
                 Debug.Log ("this should deselect buttons");
                 outlineSelector.SetActive(true);
+                makeButtonToggle.GetComponent<Button>().onClick.Invoke();
+                paintButtonToggle.GetComponent<Button>().onClick.Invoke();
+                clearButtonToggle.GetComponent<Button>().onClick.Invoke(); 
             }
         }
     }

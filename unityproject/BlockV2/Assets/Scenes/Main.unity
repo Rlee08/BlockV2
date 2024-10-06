@@ -1929,6 +1929,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockOutline: {fileID: 1761946745}
   outlineSelector: {fileID: 456131677}
+  makeButtonToggle: {fileID: 1292276677}
+  paintButtonToggle: {fileID: 1064487637}
+  clearButtonToggle: {fileID: 646663697}
 --- !u!1 &1140187372
 GameObject:
   m_ObjectHideFlags: 0
