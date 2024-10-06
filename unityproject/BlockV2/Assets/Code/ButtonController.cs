@@ -16,6 +16,7 @@ public class ButtonController : MonoBehaviour
     [SerializeField] GameObject mainButtonGroup;
     [SerializeField] GameObject popup1;
     [SerializeField] GameObject popup2;
+    [SerializeField] GameObject shareButtonDefault;
 
 
     private RaycastHit raycastHit;
@@ -39,7 +40,7 @@ public class ButtonController : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (!Physics.Raycast(ray, out raycastHit))
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && !shareButtonDefault.activeSelf)
             {
                 Debug.Log ("this should deselect buttons");
                 outlineSelector.SetActive(true);
@@ -49,13 +50,23 @@ public class ButtonController : MonoBehaviour
 
                 shareBlock.SetActive(false);
                 mainButtonGroup.SetActive(true);
-                popup1.SetActive(false);
-                popup2.SetActive(false);
+                // popup1.SetActive(false);
+                // popup2.SetActive(false);
             }
+
         }
 
         if (Input.GetKeyDown(KeyCode.Space)){
             popup2.SetActive(true);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape)){
+            popup2.SetActive(false);
+            popup1.SetActive(false);
+
+
+            shareBlock.SetActive(false);
+            mainButtonGroup.SetActive(true);
         }
     }
 

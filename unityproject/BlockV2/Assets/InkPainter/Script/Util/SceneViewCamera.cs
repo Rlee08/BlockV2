@@ -18,10 +18,28 @@ namespace Es.Utility
 		private float rotateSpeed = 0.3f;
 
 		private Vector3 preMousePos;
+		public float MoveSpeed = 10;
 
 		private void Update()
 		{
 			MouseUpdate();
+			
+
+			// get input values
+        	float inputX = Input.GetAxis("Horizontal");
+        	float inputY = Input.GetAxis("Fly");
+        	float inputZ = Input.GetAxis("Vertical");
+
+        	// directions
+        	Vector3 dirForward = Vector3.ProjectOnPlane(Camera.main.transform.forward, Vector3.up).normalized;
+        	Vector3 dirSide = Camera.main.transform.right;
+        	Vector3 dirUp = Vector3.up;
+
+        	Vector3 moveDir = (inputX * dirSide) + (inputY * dirUp) + (inputZ * dirForward);
+
+        	// move camera
+        	transform.position += moveDir * MoveSpeed * Time.deltaTime;
+
 			return;
 		}
 
@@ -31,9 +49,7 @@ namespace Es.Utility
 			if(scrollWheel != 0.0f)
 				MouseWheel(scrollWheel);
 
-			if(Input.GetMouseButtonDown(0) ||
-			   Input.GetMouseButtonDown(1) ||
-			   Input.GetMouseButtonDown(2))
+			if(Input.GetMouseButtonDown(0))
 				preMousePos = Input.mousePosition;
 
 			MouseDrag(Input.mousePosition);
@@ -54,7 +70,7 @@ namespace Es.Utility
 
 			if(Input.GetMouseButton(2))
 				transform.Translate(-diff * Time.deltaTime * moveSpeed);
-			else if(Input.GetMouseButton(1))
+			else if(Input.GetMouseButton(0))
 				CameraRotate(new Vector2(-diff.y, diff.x) * rotateSpeed);
 
 			preMousePos = mousePos;

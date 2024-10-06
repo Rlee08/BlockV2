@@ -1871,7 +1871,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964943541}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 198ea805a7ea99e4f9dfb199175e9be9, type: 3}
   m_Name: 
@@ -1879,6 +1879,7 @@ MonoBehaviour:
   wheelSpeed: 10
   moveSpeed: 0.3
   rotateSpeed: 0.3
+  MoveSpeed: 50
 --- !u!81 &964943544
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1968,7 +1969,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 964943541}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6cf0e720c2767574bb08d04992784c63, type: 3}
   m_Name: 
@@ -2328,6 +2329,7 @@ MonoBehaviour:
   mainButtonGroup: {fileID: 1502560071}
   popup1: {fileID: 428615912}
   popup2: {fileID: 1263991977}
+  shareButtonDefault: {fileID: 1718624150}
 --- !u!1 &1118750301
 GameObject:
   m_ObjectHideFlags: 0
