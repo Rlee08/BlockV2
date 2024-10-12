@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Block</title>
+  </head>
+  <link rel="stylesheet" href="style.css">
+  <body style="text-align: center; padding: 0; border: 0; margin: 0; overflow-y: hidden">
+    
+    <canvas id="unity-canvas" width=100% height=100% tabindex="-1" style="width: 100%; height: 100vh; background: white">
+    </canvas>
+
+    <!-- <canvas id="splashCanvas"></canvas> -->
+
+    <div id="splashScreen" style="display: none;">
+        <video id="splashVideo" 
+          autoplay 
+          muted
+          playsInline
+          onEnded="onFinish()">
+          <source src="BlockSplash.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+    </div>
+    
+
+    <script> 
+      function showSplashDiv() {
+      document.getElementById('splashScreen').style.display = 'flex';
+
+      // // Set a timeout to hide the div and show the next content after 5 seconds
+      // setTimeout(function() {
+      //     document.getElementById('splashScreen').style.display = 'none';
+      //     // showNextContent();
+      // }, 4000); // 5000 milliseconds = 5 seconds
+    }
+      window.onload = showSplashDiv;
+    </script>
+
+    <script>
+      function onFinish() {
+        document.getElementById('splashScreen').style.display = 'none';
+      }
+    </script>
+    
+    <script src="Build/Build6.loader.js"></script>
+    
+    <script>
+      // if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      //   // Mobile device style: fill the whole browser client area with the game canvas:
+      //   var meta = document.createElement('meta');
+      //   meta.name = 'viewport';
+      //   meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+      //   document.getElementsByTagName('head')[0].appendChild(meta);
+
+      //   var canvas = document.querySelector("#unity-canvas");
+      //   canvas.style.width = "100%";
+      //   canvas.style.height = "100%";
+      //   canvas.style.position = "fixed";
+
+      //   document.body.style.textAlign = "left";
+      // }
+      
+      createUnityInstance(document.querySelector("#unity-canvas"), {
+        arguments: [],
+        dataUrl: "Build/Build6.data",
+        frameworkUrl: "Build/Build6.framework.js",
+        codeUrl: "Build/Build6.wasm",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "ryan",
+        productName: "BlockV2",
+        productVersion: "0.1",
+        // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
+        // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
+      });
+    </script>
+  </body>
+</html>
