@@ -1880,6 +1880,7 @@ MonoBehaviour:
   moveSpeed: 0.3
   rotateSpeed: 0.3
   MoveSpeed: 50
+  paintToggle: {fileID: 1064487637}
 --- !u!81 &964943544
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2330,6 +2331,7 @@ MonoBehaviour:
   popup1: {fileID: 428615912}
   popup2: {fileID: 1263991977}
   shareButtonDefault: {fileID: 1718624150}
+  shareButtonToggle: {fileID: 741128926}
 --- !u!1 &1118750301
 GameObject:
   m_ObjectHideFlags: 0

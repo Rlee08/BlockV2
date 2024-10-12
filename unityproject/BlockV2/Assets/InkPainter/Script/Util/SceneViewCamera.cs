@@ -19,6 +19,7 @@ namespace Es.Utility
 
 		private Vector3 preMousePos;
 		public float MoveSpeed = 10;
+		[SerializeField] GameObject paintToggle;
 
 		private void Update()
 		{
@@ -70,7 +71,7 @@ namespace Es.Utility
 
 			if(Input.GetMouseButton(2))
 				transform.Translate(-diff * Time.deltaTime * moveSpeed);
-			else if(Input.GetMouseButton(0))
+			else if(Input.GetMouseButton(0) && !paintToggle.activeSelf)
 				CameraRotate(new Vector2(-diff.y, diff.x) * rotateSpeed);
 
 			preMousePos = mousePos;

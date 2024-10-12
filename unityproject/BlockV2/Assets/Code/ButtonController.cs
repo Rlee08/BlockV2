@@ -17,6 +17,7 @@ public class ButtonController : MonoBehaviour
     [SerializeField] GameObject popup1;
     [SerializeField] GameObject popup2;
     [SerializeField] GameObject shareButtonDefault;
+    [SerializeField] GameObject shareButtonToggle;
 
 
     private RaycastHit raycastHit;
@@ -40,7 +41,7 @@ public class ButtonController : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (!Physics.Raycast(ray, out raycastHit))
         {
-            if (Input.GetMouseButtonDown(0) && !shareButtonDefault.activeSelf)
+            if (Input.GetMouseButtonDown(0) &&!shareButtonDefault.activeSelf)
             {
                 Debug.Log ("this should deselect buttons");
                 outlineSelector.SetActive(true);
@@ -53,6 +54,19 @@ public class ButtonController : MonoBehaviour
                 // popup1.SetActive(false);
                 // popup2.SetActive(false);
             }
+            // else if (Input.GetMouseButtonDown(0) && shareButtonDefault.activeSelf)
+            // {
+            //     Debug.Log ("this should deselect share button");
+            //     outlineSelector.SetActive(true);
+            //     makeButtonToggle.GetComponent<Button>().onClick.Invoke();
+            //     paintButtonToggle.GetComponent<Button>().onClick.Invoke();
+            //     clearButtonToggle.GetComponent<Button>().onClick.Invoke(); 
+
+            //     shareBlock.SetActive(false);
+            //     mainButtonGroup.SetActive(true);
+            //     // popup1.SetActive(false);
+            //     // popup2.SetActive(false);
+            // }
 
         }
 
@@ -65,6 +79,8 @@ public class ButtonController : MonoBehaviour
             popup1.SetActive(false);
 
 
+            shareButtonToggle.SetActive(false);
+            shareButtonDefault.SetActive(true);
             shareBlock.SetActive(false);
             mainButtonGroup.SetActive(true);
         }
